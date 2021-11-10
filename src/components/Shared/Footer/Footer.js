@@ -4,14 +4,14 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <Box sx={{ background: '#111', color: 'white', pt: '5%' }}>
+        <Box sx={{ background: '#111', color: '#f0fff1', pt: '5%' }}>
             <Container>
                 <Grid container>
                     <Grid item xs={12} md={5}>
                         <Typography variant='h5'>
                             Car Reign
                         </Typography>
-                        <Box>
+                        <Box sx={{ my: '5%' }}>
                             <Typography variant='h6'>
                                 About us
                             </Typography>

@@ -6,14 +6,15 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import { Link, NavLink } from 'react-router-dom';
 
 function Navigation() {
     return (
         <Box>
             <Box sx={{ flexGrow: 1 }} >
                 <AppBar sx={{
-                    background: 'transparent',
-                    color: 'black'
+                    background: '#444',
+                    color: 'white'
                 }} position="static">
                     <Toolbar>
                         <IconButton
@@ -28,7 +29,9 @@ function Navigation() {
                         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                             Car Reign
                         </Typography>
-                        <Button color="inherit">Login</Button>
+                        <Button sx={{ border: '1px solid #888' }}>
+                            <NavLink to='/login' style={{ color: 'white', textDecoration: 'none' }}>Login</NavLink>
+                        </Button>
                     </Toolbar>
                 </AppBar>
             </ Box>
