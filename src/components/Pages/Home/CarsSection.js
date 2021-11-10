@@ -5,8 +5,8 @@ import CarsContainer from './CarsContainer';
 const CarsSection = () => {
     return (
         <Container sx={{ p: '5% 0' }}>
-            <Typography variant='h3' sx={{ textAlign: 'center' }}>
-                Cars
+            <Typography variant='h4' sx={{ textAlign: 'center' }}>
+                Our Collection
             </Typography>
             <CarsContainer></CarsContainer>
         </Container>
