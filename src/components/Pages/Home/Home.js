@@ -1,6 +1,7 @@
 import React from 'react';
 import Navigation from '../../Shared/Navigation/Navigation';
 import Banner from './Banner';
+import CarsSection from './CarsSection';
 
 const Home = () => {
 
@@ -8,6 +9,7 @@ const Home = () => {
         <>
             <Navigation></Navigation>
             <Banner></Banner>
+            <CarsSection></CarsSection>
         </>
     );
 };

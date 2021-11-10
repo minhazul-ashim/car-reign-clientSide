@@ -1,0 +1,74 @@
+[
+    {
+        "name": "Toyota Crown",
+        "manufrac": "Toyota",
+        "engine": "4.8L",
+        "weight": "1690-1900",
+        "category": "Sedan",
+        "price": 10000
+    },
+    {
+        "name": "Lexus LFA",
+        "manufrac": "Lexus",
+        "engine": "2.0L",
+        "weight": "1330-1400",
+        "category": "Coupe",
+        "price": 15000
+    },
+    {
+        "name": "Audi A8",
+        "manufrac": "Audi",
+        "engine": "V12",
+        "weight": "1620-1900",
+        "category": "Sedan",
+        "price": 20000
+    },
+    {
+        "name": "BMW Series 7",
+        "manufrac": "BMW",
+        "engine": "V10",
+        "weight": "1490-1800",
+        "category": "Sedan",
+        "price": 18000
+    },
+    {
+        "name": "Honda Civic",
+        "manufrac": "Honda",
+        "engine": "V8",
+        "weight": "1490-1700",
+        "category": "Sporty Sedan",
+        "price": 13900
+    },
+    {
+        "name": "Honda Accord",
+        "manufrac": "Honda",
+        "engine": "V12",
+        "weight": "1500-1600",
+        "category": "Sedan",
+        "price": 18900
+    },
+    {
+        "name": "Benz C Class",
+        "manufrac": "Mercedez Benz",
+        "engine": "V12",
+        "weight": "1500-1600",
+        "category": "Sedan",
+        "price": 29900
+    },
+    {
+        "name": "Audi R8",
+        "manufrac": "Audi",
+        "engine": "V6",
+        "weight": "1100-1200",
+        "category": "Sports",
+        "price": 59900
+    },
+    {
+        "name": "BMW X7",
+        "manufrac": "BMW",
+        "engine": "V10",
+        "weight": "2300-2400",
+        "category": "SUV",
+        "price": 39900
+    }
+]

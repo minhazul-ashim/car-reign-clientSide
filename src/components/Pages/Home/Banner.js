@@ -1,6 +1,5 @@
-import { Opacity } from '@mui/icons-material';
 import { Button, Container, Grid, Typography } from '@mui/material';
-import { Box, display } from '@mui/system';
+import { Box } from '@mui/system';
 import React from 'react';
 import bg from '../../../images/bannerbg.jpg'
 import benz from '../../../images/benz.jpg'
