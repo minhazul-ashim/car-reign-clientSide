@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Audi",
+        "origin": "Germany",
+        "logo": "https://logowik.com/content/uploads/images/562_audi.jpg"
+    },
+    {
+        "name": "Tesla Motors",
+        "origin": "USA",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Tesla_logo.png"
+    },
+    {
+        "name": "Honda",
+        "origin": "Germany",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Honda.svg/2560px-Honda.svg.png"
+    }
+]

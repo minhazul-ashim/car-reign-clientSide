@@ -6,8 +6,8 @@ const ReviewBox = ({ review }) => {
     const { client, message, company } = review;
 
     return (
-        <Grid item xs={12} md={4}>
-            <Paper elevation={1} sx={{ p: '5%' }}>
+        <Grid item xs={12} md={4} sx={{ height: '100%' }}>
+            <Paper elevation={1} sx={{ p: '5%', height: '100%' }}>
                 <Typography variant='h6' sx={{ textAlign: 'center' }}>
                     {client}
                 </Typography>
