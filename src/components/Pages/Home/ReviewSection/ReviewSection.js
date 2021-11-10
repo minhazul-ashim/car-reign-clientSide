@@ -5,8 +5,8 @@ import ReviewContainer from './ReviewContainer';
 const ReviewSection = () => {
     return (
         <>
-            <Container>
-                <Typography variant='h4' sx={{ textAlign: 'center' }}>
+            <Container sx={{ my: '5%' }}>
+                <Typography variant='h4' sx={{ textAlign: 'center', my: '5%' }}>
                     Testimonials
                 </Typography>
                 <ReviewContainer></ReviewContainer>

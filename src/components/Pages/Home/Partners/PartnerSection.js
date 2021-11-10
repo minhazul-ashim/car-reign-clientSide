@@ -4,8 +4,8 @@ import PartnerContainer from './PartnerContainer';
 
 const PartnerSection = () => {
     return (
-        <Container>
-            <Typography variant='h4' sx={{ textAlign: 'center' }}>
+        <Container sx={{ my: '10%' }}>
+            <Typography variant='h4' sx={{ textAlign: 'center', my: '5%' }}>
                 Collaboration
             </Typography>
             <PartnerContainer></PartnerContainer>
