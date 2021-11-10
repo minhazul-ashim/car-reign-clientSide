@@ -1,5 +1,5 @@
 import { Button, Grid, Paper, Typography } from '@mui/material';
-import { Box, height } from '@mui/system';
+import { Box } from '@mui/system';
 import React from 'react';
 
 const CarBox = (props) => {
