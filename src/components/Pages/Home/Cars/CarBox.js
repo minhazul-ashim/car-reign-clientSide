@@ -1,11 +1,13 @@
 import { Button, Grid, Paper, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const CarBox = (props) => {
 
     const { car } = props;
 
+    const url = `/carinfo/${car._id}`
 
     return (
         <Grid item xs={12} md={6}>
@@ -27,7 +29,11 @@ const CarBox = (props) => {
                     <Typography variant='h6'>
                         Price: ${car.price}
                     </Typography>
-                    <Button variant='outlined'>View Details</Button>
+
+                    <Link to={url} style={{ textDecoration: 'none' }}>
+                        <Button variant='outlined'>View Details</Button>
+                    </Link>
+
                 </Box>
             </Paper>
         </Grid>

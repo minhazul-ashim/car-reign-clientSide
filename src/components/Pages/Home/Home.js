@@ -2,7 +2,7 @@ import React from 'react';
 import Footer from '../../Shared/Footer/Footer';
 import Navigation from '../../Shared/Navigation/Navigation';
 import Banner from './Banner';
-import CarsSection from './CarsSection';
+import CarsSection from '../Home/Cars/CarsSection';
 import PartnerSection from './Partners/PartnerSection';
 import ReviewSection from './ReviewSection/ReviewSection';
 

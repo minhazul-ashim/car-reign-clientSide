@@ -13,8 +13,6 @@ function Navigation() {
 
     const { user, logOut } = useAuth();
 
-    console.log(user);
-
     return (
         <Box>
             <Box sx={{ flexGrow: 1 }} >
