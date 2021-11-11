@@ -6,9 +6,15 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 
 function Navigation() {
+
+    const { user, logOut } = useAuth();
+
+    console.log(user);
+
     return (
         <Box>
             <Box sx={{ flexGrow: 1 }} >
@@ -29,13 +35,21 @@ function Navigation() {
                         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                             Car Reign
                         </Typography>
-                        <Button sx={{ border: '1px solid #888' }}>
-                            <NavLink to='/login' style={{ color: 'white', textDecoration: 'none' }}>Login</NavLink>
-                        </Button>
+                        {
+                            !user ?
+                                <Button sx={{}}>
+                                    <NavLink to='/login' style={{ color: 'white', textDecoration: 'none' }}>Login</NavLink>
+                                </Button> :
+                                <Button onClick={logOut} sx={{
+                                    border: 'none', background: 'red', color: 'white'
+                                }}>
+                                    Log out
+                                </Button>
+                        }
                     </Toolbar>
                 </AppBar>
             </ Box>
-        </Box>
+        </Box >
     );
 }
 

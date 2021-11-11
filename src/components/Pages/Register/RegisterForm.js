@@ -2,14 +2,14 @@ import { Button, Container, Grid, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import useFirebase from '../../../hooks/useFirebase';
+import useAuth from '../../../hooks/useAuth';
 import loginImg from '../../../images/loginimage.jpg';
 
 const RegisterForm = () => {
 
     const [form, setForm] = useState({});
 
-    const { googleSignIn } = useFirebase();
+    const { googleSignIn, createUser, error } = useAuth();
 
     const handleBlur = (e) => {
 
@@ -24,7 +24,8 @@ const RegisterForm = () => {
 
     const handleSubmit = () => {
 
-        console.log(form)
+        const { email, password } = form;
+        createUser(email, password)
     }
 
     const googleLogin = () => {
@@ -48,11 +49,13 @@ const RegisterForm = () => {
                             Already Registered? Please <Link to='/login'>Login.</Link>.
                         </Typography>
 
-                        <Button onClick={handleSubmit} variant='outlined' sx={{ mb: '3%', display: 'block' }}>
+                        <Button onClick={handleSubmit} variant='outlined' sx={{ display: 'block' }}>
                             Submit
                         </Button>
-
-                        <Button onClick={googleLogin} variant='contained' sx={{ color: 'white', background: 'maroon' }}>
+                        <Typography sx={{ color: 'red' }} variant='caption'>
+                            {error}
+                        </Typography>
+                        <Button onClick={googleLogin} variant='contained' sx={{ color: 'white', background: 'maroon', display: 'block', mt: '2%' }}>
                             Login with Google
                         </Button>
 

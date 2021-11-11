@@ -3,11 +3,13 @@ import './App.css';
 import Home from './components/Pages/Home/Home';
 import Login from './components/Pages/Login/Login';
 import Register from './components/Pages/Register/Register';
+import AuthProvider from './context/AuthProvider';
 
 
 function App() {
   return (
     <div className="App">
+      <AuthProvider>
       <BrowserRouter>
         <Switch>
           <Route path='/home'>
@@ -24,6 +26,7 @@ function App() {
           </Route>
         </Switch>
       </BrowserRouter>
+      </AuthProvider>
     </div>
   );
 }
