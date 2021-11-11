@@ -2,11 +2,14 @@ import { Button, Container, Grid, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import loginImg from '../../../images/loginimage.jpg'
+import useFirebase from '../../../hooks/useFirebase';
+import loginImg from '../../../images/loginimage.jpg';
 
 const RegisterForm = () => {
 
     const [form, setForm] = useState({});
+
+    const { googleSignIn } = useFirebase();
 
     const handleBlur = (e) => {
 
@@ -22,6 +25,11 @@ const RegisterForm = () => {
     const handleSubmit = () => {
 
         console.log(form)
+    }
+
+    const googleLogin = () => {
+
+        googleSignIn();
     }
 
     return (
@@ -44,7 +52,7 @@ const RegisterForm = () => {
                             Submit
                         </Button>
 
-                        <Button variant='contained' sx={{ color: 'white', background: 'maroon' }}>
+                        <Button onClick={googleLogin} variant='contained' sx={{ color: 'white', background: 'maroon' }}>
                             Login with Google
                         </Button>
 
