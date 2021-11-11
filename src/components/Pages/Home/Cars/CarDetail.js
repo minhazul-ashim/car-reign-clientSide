@@ -18,7 +18,7 @@ const CarDetail = () => {
         const value = e.target.value;
 
         const info = { ...formInfo }
-        info['product'] = car.name;
+        info['productId'] = id;
         info[field] = value;
 
         setFormInfo(info)
@@ -26,7 +26,15 @@ const CarDetail = () => {
 
     const handleOrder = () => {
 
-        console.log(formInfo)
+        fetch('http://localhost:5000/orders', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(formInfo)
+        })
+            .then(res => res.json())
+            .then(data => { })
     }
 
     useEffect(() => {
@@ -80,6 +88,8 @@ const CarDetail = () => {
 
 
                         <TextField name='phone' onBlur={handleBlur} label="Your Phone Number" variant="standard" sx={{ width: '100%' }} />
+
+                        <TextField name='address' onBlur={handleBlur} label="Your Permanent Address" variant="standard" sx={{ width: '100%' }} />
 
                         <TextField disabled onBlur={handleBlur} label={car?.name} defaultValue={car?.name} variant="standard" sx={{ width: '100%', mb: '3%' }} />
 
