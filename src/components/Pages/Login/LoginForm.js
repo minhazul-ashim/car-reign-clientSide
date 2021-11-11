@@ -9,7 +9,7 @@ const LoginForm = () => {
 
     const [loginInfo, setLoginInfo] = useState({});
 
-    const { manualSignIn } = useAuth();
+    const { manualSignIn, googleSignIn } = useAuth();
 
     const handleBlur = (e) => {
 
@@ -22,6 +22,11 @@ const LoginForm = () => {
         setLoginInfo(previousValue)
     }
 
+    const googleLogin = () => {
+
+        googleSignIn()
+    }
+
     const handleLogin = () => {
 
         const { email, password } = loginInfo;
@@ -30,10 +35,14 @@ const LoginForm = () => {
 
     return (
         <Container>
-            <Grid container sx={{ p: '5%' }}>
-                <Grid item xs={12} md={5} sx={{ display: 'flex', justifyContent: 'center' }}>
+            <Grid container sx={{}}>
+                <Grid item xs={12} md={5} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
 
                     <Box sx={{ width: '100%' }}>
+
+                        <Typography sx={{ textAlign: 'center', mb: '3%', color: 'deepskyblue' }} variant='h3'>
+                            User Login
+                        </Typography>
 
                         <TextField name='email' onBlur={handleBlur} id="standard-basic" label="Email" variant="filled" sx={{ width: '100%' }} />
 
@@ -47,7 +56,7 @@ const LoginForm = () => {
                             Login
                         </Button>
 
-                        <Button variant='contained' sx={{ color: 'white', background: 'maroon' }}>
+                        <Button onClick={googleLogin} variant='contained' sx={{ color: 'white', background: 'maroon' }}>
                             Login with Google
                         </Button>
 

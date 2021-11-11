@@ -37,14 +37,19 @@ function Navigation() {
                         </Typography>
                         {
                             !user ?
-                                <Button sx={{}}>
+                                <Button variant='outlined' sx={{ border: '1px solid #999' }}>
                                     <NavLink to='/login' style={{ color: 'white', textDecoration: 'none' }}>Login</NavLink>
                                 </Button> :
-                                <Button onClick={logOut} sx={{
-                                    border: 'none', background: 'red', color: 'white'
-                                }}>
-                                    Log out
-                                </Button>
+                                <Box>
+                                    <Typography variant='body'>
+                                        {user.displayName}
+                                    </Typography>
+                                    <Button variant='outlined' onClick={logOut} sx={{
+                                        border: '1px solid white', color: 'white', ml: '10px'
+                                    }}>
+                                        Log out
+                                    </Button>
+                                </Box>
                         }
                     </Toolbar>
                 </AppBar>

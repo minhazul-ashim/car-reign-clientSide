@@ -35,9 +35,13 @@ const RegisterForm = () => {
 
     return (
         <Container>
-            <Grid container sx={{ p: '5%' }}>
-                <Grid item xs={12} md={5} sx={{ display: 'flex', justifyContent: 'center' }}>
+            <Grid container sx={{}}>
+                <Grid item xs={12} md={5} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                     <Box sx={{ width: '100%' }}>
+
+                        <Typography sx={{ textAlign: 'center', mb: '3%', color: 'deepskyblue' }} variant='h3'>
+                            User Registration
+                        </Typography>
 
                         <TextField name='name' onBlur={handleBlur} label="Your Name" variant="filled" sx={{ width: '100%', my: '2%' }} />
 
