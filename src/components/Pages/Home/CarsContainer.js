@@ -8,7 +8,7 @@ const CarsContainer = () => {
 
     useEffect(() => {
 
-        fetch('/cars.json')
+        fetch('http://localhost:5000/cars')
             .then(res => res.json())
             .then(data => {
                 setAllCars(data);
