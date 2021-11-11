@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
 function Navigation() {
@@ -35,6 +35,9 @@ function Navigation() {
                         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                             Car Reign
                         </Typography>
+                        <NavLink style={{ color: 'white', textDecoration: 'none', marginRight: '3%' }} activeStyle={{ borderBottom: '2px solid white' }} to='/home'><Typography variant='body'>
+                            Home
+                        </Typography></NavLink>
                         {
                             !user ?
                                 <Button variant='outlined' sx={{ border: '1px solid #999' }}>
