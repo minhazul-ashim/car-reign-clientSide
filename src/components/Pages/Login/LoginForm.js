@@ -44,9 +44,9 @@ const LoginForm = () => {
                             User Login
                         </Typography>
 
-                        <TextField name='email' onBlur={handleBlur} id="standard-basic" label="Email" variant="filled" sx={{ width: '100%' }} />
+                        <TextField name='email' onBlur={handleBlur} label="Email" variant="filled" sx={{ width: '100%' }} />
 
-                        <TextField name='password' onBlur={handleBlur} id="standard-basic" label="Password" type='password' variant="filled" sx={{ width: '100%', my: '2%' }} />
+                        <TextField name='password' onBlur={handleBlur} label="Password" type='password' variant="filled" sx={{ width: '100%', my: '2%' }} />
 
                         <Typography variant='body2'>
                             New here? Please <Link to='/register'>Register.</Link>.
