@@ -1,4 +1,3 @@
-import { Container } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import useAuth from '../../../../hooks/useAuth';
 import Table from '@mui/material/Table';
@@ -21,7 +20,6 @@ const MyOrders = () => {
             .then(res => res.json())
             .then(data => {
                 setOrders(data)
-                console.log(data)
             })
     }
 
@@ -37,7 +35,7 @@ const MyOrders = () => {
     useEffect(loadOrders, [user])
 
     return (
-        <Container>
+        <>
             <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
@@ -67,7 +65,7 @@ const MyOrders = () => {
                     </TableBody>
                 </Table>
             </TableContainer>
-        </Container>
+        </>
     );
 };
 

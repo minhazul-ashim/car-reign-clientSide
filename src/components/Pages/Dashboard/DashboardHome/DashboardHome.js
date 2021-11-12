@@ -14,7 +14,6 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
 import {
-    BrowserRouter as Router,
     Switch,
     Route,
     useRouteMatch
