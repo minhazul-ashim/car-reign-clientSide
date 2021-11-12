@@ -24,8 +24,8 @@ const RegisterForm = () => {
 
     const handleSubmit = () => {
 
-        const { email, password } = form;
-        createUser(email, password)
+        const { email, password, name } = form;
+        createUser(email, password, name)
     }
 
     const googleLogin = () => {
