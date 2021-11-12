@@ -33,7 +33,6 @@ const useFirebase = () => {
 
                 const { email, displayName } = result.user;
                 saveUser(email, displayName, 'PUT');
-                checkAdmin(email);
             })
             .catch(error => setError(error.message))
     }
@@ -41,7 +40,8 @@ const useFirebase = () => {
     const manualSignIn = (email, password) => {
 
         signInWithEmailAndPassword(auth, email, password)
-            .then(result => { checkAdmin(email) })
+            .then(result => {
+            })
             .catch(error => setError(error.message))
     }
 
@@ -66,14 +66,19 @@ const useFirebase = () => {
             .then(data => { })
     }
 
-    const checkAdmin = (email) => {
+    // const checkAdmin = (email) => {
 
-        fetch(`http://localhost:5000/admin/${email}`)
+
+    // }
+
+    useEffect(() => {
+
+        fetch(`http://localhost:5000/admin/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setAdmin(data)
             })
-    }
+    }, [user?.email])
 
     useEffect(() => {
 

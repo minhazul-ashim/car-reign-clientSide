@@ -23,12 +23,15 @@ import MyOrders from '../MyOrders/MyOrders';
 import Payment from '../Payment/Payment';
 import useAuth from '../../../../hooks/useAuth';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
+import ManageOrders from '../ManageOrders/ManageOrders';
+import ManageReviews from '../ManageReviews/ManageReviews';
+import AddProduct from '../AddProduct/AddProduct';
 
 const drawerWidth = 240;
 
 function DashboardHome(props) {
 
-    const { logOut } = useAuth();
+    const { user, admin, logOut } = useAuth();
 
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -50,21 +53,40 @@ function DashboardHome(props) {
                 </ListItem>
 
 
-                <ListItem button>
-                    <ListItemText as={Link} to={`${url}/myorders`} primary='My Orders' />
-                </ListItem>
+                {
+                    !admin ?
+                        <>
+                            <ListItem button>
+                                <ListItemText as={Link} to={`${url}/myorders`} primary='My Orders' />
+                            </ListItem>
 
-                <ListItem button>
-                    <ListItemText as={Link} to={`${url}/makeadmin`} primary='Make Admin' />
-                </ListItem>
+                            <ListItem button>
+                                <ListItemText as={Link} to={`${url}/payment`} primary='Make Payment' />
+                            </ListItem>
 
-                <ListItem button>
-                    <ListItemText as={Link} to={`${url}/payment`} primary='Make Payment' />
-                </ListItem>
+                            <ListItem button>
+                                <ListItemText as={Link} to={`${url}/review`} primary='Review' />
+                            </ListItem>
+                        </> :
+                        <>
 
-                <ListItem button>
-                    <ListItemText as={Link} to={`${url}/review`} primary='Review' />
-                </ListItem>
+                            <ListItem button>
+                                <ListItemText as={Link} to={`${url}/manageorders`} primary='Manage Orders' />
+                            </ListItem>
+
+                            <ListItem button>
+                                <ListItemText as={Link} to={`${url}/addproduct`} primary='Add a Product' />
+                            </ListItem>
+
+                            <ListItem button>
+                                <ListItemText as={Link} to={`${url}/managereviews`} primary='Manage Reviews' />
+                            </ListItem>
+
+                            <ListItem button>
+                                <ListItemText as={Link} to={`${url}/makeadmin`} primary='Make Admin' />
+                            </ListItem>
+                        </>
+                }
 
                 <ListItem button>
                     <ListItemText onClick={logOut} to='/home' primary='Log out' />
@@ -99,7 +121,7 @@ function DashboardHome(props) {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
-                        Dashboard
+                        {user?.displayName}
                     </Typography>
                 </Toolbar>
             </AppBar>
@@ -142,7 +164,16 @@ function DashboardHome(props) {
                 <Toolbar />
                 <Switch>
                     <Route exact path={path}>
-                        <MyOrders></MyOrders>
+                        {!admin ?
+                            <Route exact path={path}>
+                                <MyOrders></MyOrders>
+                            </Route> :
+                            <Route exact path={path}>
+                                <ManageOrders></ManageOrders>
+                            </Route>}
+                    </Route>
+                    <Route path={`${path}/manageorders`}>
+                        <ManageOrders></ManageOrders>
                     </Route>
                     <Route path={`${path}/myorders`}>
                         <MyOrders></MyOrders>
@@ -155,6 +186,12 @@ function DashboardHome(props) {
                     </Route>
                     <Route path={`${path}/makeadmin`}>
                         <MakeAdmin></MakeAdmin>
+                    </Route>
+                    <Route path={`${path}/managereviews`}>
+                        <ManageReviews></ManageReviews>
+                    </Route>
+                    <Route path={`${path}/addproduct`}>
+                        <AddProduct></AddProduct>
                     </Route>
                 </Switch>
             </Box>
