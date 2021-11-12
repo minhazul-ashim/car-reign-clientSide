@@ -21,10 +21,14 @@ import {
 import Review from '../Review/Review';
 import MyOrders from '../MyOrders/MyOrders';
 import Payment from '../Payment/Payment';
+import useAuth from '../../../../hooks/useAuth';
 
 const drawerWidth = 240;
 
 function DashboardHome(props) {
+
+    const { logOut } = useAuth();
+
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -58,7 +62,7 @@ function DashboardHome(props) {
                 </ListItem>
 
                 <ListItem button>
-                    <ListItemText as={Link} to='/home' primary='Log out' />
+                    <ListItemText onClick={logOut} to='/home' primary='Log out' />
                 </ListItem>
 
 
