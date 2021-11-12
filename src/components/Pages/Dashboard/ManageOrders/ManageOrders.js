@@ -31,6 +31,17 @@ const ManageOrders = () => {
             })
     }
 
+    const handleDeletion = (id) => {
+
+        fetch(`http://localhost:5000/orders/${id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                loadOrders()
+            })
+    }
+
     useEffect(loadOrders, [])
 
     return (
@@ -62,6 +73,10 @@ const ManageOrders = () => {
                                 <TableCell align="right">{order.status}</TableCell>
                                 <TableCell align="right">Unpaid</TableCell>
                                 <TableCell align="right">
+
+                                    <Typography onClick={() => handleDeletion(order._id)} variant='caption' sx={{ display: 'block', color: 'red', mb: '10%' }}>
+                                        Reject
+                                    </Typography>
 
                                     <Typography onClick={() => handleStatus(order._id, 'Approved')} variant='caption' sx={{ display: 'block', color: 'green' }}>
                                         Approve
