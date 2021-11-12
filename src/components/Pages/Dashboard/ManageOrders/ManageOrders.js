@@ -15,6 +15,22 @@ const ManageOrders = () => {
             })
     }
 
+    const handleStatus = (id, status) => {
+
+        fetch(`http://localhost:5000/orders`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({ id: id, status: status })
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                loadOrders()
+            })
+    }
+
     useEffect(loadOrders, [])
 
     return (
@@ -46,17 +62,19 @@ const ManageOrders = () => {
                                 <TableCell align="right">{order.status}</TableCell>
                                 <TableCell align="right">Unpaid</TableCell>
                                 <TableCell align="right">
-                                    <Typography variant='caption' sx={{ display: 'block', color: 'green' }}>
+
+                                    <Typography onClick={() => handleStatus(order._id, 'Approved')} variant='caption' sx={{ display: 'block', color: 'green' }}>
                                         Approve
                                     </Typography>
 
-                                    <Typography variant='caption' sx={{ display: 'block', my: '10%', color: 'red' }}>
+                                    <Typography onClick={() => handleStatus(order._id, 'Shipped')} variant='caption' sx={{ display: 'block', my: '10%', color: 'red' }}>
                                         Shipped
                                     </Typography>
 
-                                    <Typography variant='caption' sx={{ display: 'block', color: 'blue' }}>
+                                    <Typography onClick={() => handleStatus(order._id, 'Delivered')} variant='caption' sx={{ display: 'block', color: 'blue' }}>
                                         Delivered
                                     </Typography>
+
                                 </TableCell>
                             </TableRow>
                         ))}
