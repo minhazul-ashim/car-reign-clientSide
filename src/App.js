@@ -1,5 +1,6 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
+import DashboardHome from './components/Pages/Dashboard/DashboardHome/DashboardHome';
 import CarDetail from './components/Pages/Home/Cars/CarDetail';
 import Home from './components/Pages/Home/Home';
 import Login from './components/Pages/Login/Login';
@@ -27,6 +28,9 @@ function App() {
             </Route>
             <Route path='/carinfo/:id'>
               <CarDetail></CarDetail>
+            </Route>
+            <Route path='/dashboard'>
+              <DashboardHome></DashboardHome>
             </Route>
           </Switch>
         </BrowserRouter>

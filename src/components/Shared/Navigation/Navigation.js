@@ -33,6 +33,9 @@ function Navigation() {
                         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                             Car Reign
                         </Typography>
+                        <NavLink style={{ color: 'white', textDecoration: 'none', marginRight: '3%' }} activeStyle={{ borderBottom: '2px solid white' }} to='/dashboard'><Typography variant='body'>
+                            Dashboard
+                        </Typography></NavLink>
                         <NavLink style={{ color: 'white', textDecoration: 'none', marginRight: '3%' }} activeStyle={{ borderBottom: '2px solid white' }} to='/home'><Typography variant='body'>
                             Home
                         </Typography></NavLink>
