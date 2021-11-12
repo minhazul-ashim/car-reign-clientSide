@@ -16,6 +16,7 @@ const Review = () => {
 
         const reviewInfo = { ...review }
         reviewInfo[field] = value;
+        reviewInfo['email'] = user.email;
         setReview(reviewInfo)
     }
 
