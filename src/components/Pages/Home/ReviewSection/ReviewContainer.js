@@ -16,7 +16,7 @@ const ReviewContainer = () => {
     }, [])
 
     return (
-        <Grid container spacing={2}>
+        <Grid container spacing={2} sx={{height: '100%'}}>
             {
                 reviews.map(review => <ReviewBox key={Math.random() * 4} review={review}></ReviewBox>)
             }
