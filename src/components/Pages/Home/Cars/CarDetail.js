@@ -1,12 +1,15 @@
 import { Button, Container, Grid, Paper, TextField, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
+import useAuth from '../../../../hooks/useAuth';
 import Footer from '../../../Shared/Footer/Footer';
 import Navigation from '../../../Shared/Navigation/Navigation';
 
 const CarDetail = () => {
 
     const [car, setCar] = useState(null);
+
+    const { user } = useAuth();
 
     const [formInfo, setFormInfo] = useState({})
 
@@ -19,6 +22,8 @@ const CarDetail = () => {
 
         const info = { ...formInfo }
         info['productId'] = id;
+        info['status'] = 'Pending';
+        info['email'] = user.email;
         info[field] = value;
 
         setFormInfo(info)
@@ -82,7 +87,7 @@ const CarDetail = () => {
 
                         <TextField name='name' onBlur={handleBlur} label="Your Full Name" variant="standard" sx={{ width: '100%' }} />
 
-                        <TextField name='email' onBlur={handleBlur} label="Your Email Address" variant="standard" sx={{ width: '100%' }} />
+                        <TextField disabled name='email' value={user?.email} onBlur={handleBlur} variant="standard" sx={{ width: '100%' }} />
 
                         <TextField name='nid' onBlur={handleBlur} label="Your National ID Number" variant="standard" sx={{ width: '100%' }} />
 
