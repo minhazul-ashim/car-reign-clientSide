@@ -26,6 +26,8 @@ import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import ManageOrders from '../ManageOrders/ManageOrders';
 import ManageReviews from '../ManageReviews/ManageReviews';
 import AddProduct from '../AddProduct/AddProduct';
+import { ListItemIcon } from '@mui/material';
+import { FaHome, FaNewspaper, FaPlusSquare, FaPenNib, FaUser, FaSignOutAlt, FaMoneyBill, FaThumbsUp } from 'react-icons/fa'
 
 const drawerWidth = 240;
 
@@ -49,7 +51,8 @@ function DashboardHome(props) {
             <Divider />
             <List>
                 <ListItem button>
-                    <ListItemText as={Link} to='/home' primary='Home' />
+                    <ListItemIcon><FaHome /></ListItemIcon>
+                    <ListItemText sx={{ textDecoration: 'none' }} as={Link} to='/home' primary='Home' />
                 </ListItem>
 
 
@@ -57,38 +60,46 @@ function DashboardHome(props) {
                     !admin ?
                         <>
                             <ListItem button>
-                                <ListItemText as={Link} to={`${url}/myorders`} primary='My Orders' />
+                                <ListItemIcon><FaNewspaper /></ListItemIcon>
+                                <ListItemText sx={{ textDecoration: 'none' }} as={Link} to={`${url}/myorders`} primary='My Orders' />
                             </ListItem>
 
                             <ListItem button>
-                                <ListItemText as={Link} to={`${url}/payment`} primary='Make Payment' />
+                                <ListItemIcon><FaMoneyBill /></ListItemIcon>
+                                <ListItemText sx={{ textDecoration: 'none' }} as={Link} to={`${url}/payment`} primary='Make Payment' />
                             </ListItem>
 
                             <ListItem button>
-                                <ListItemText as={Link} to={`${url}/review`} primary='Review' />
+                                <ListItemIcon><FaThumbsUp /></ListItemIcon>
+                                <ListItemText sx={{ textDecoration: 'none' }} as={Link} to={`${url}/review`} primary='Review' />
                             </ListItem>
                         </> :
                         <>
 
                             <ListItem button>
-                                <ListItemText as={Link} to={`${url}/manageorders`} primary='Manage Orders' />
+                                <ListItemIcon><FaNewspaper /></ListItemIcon>
+                                <ListItemText sx={{ textDecoration: 'none' }} as={Link} to={`${url}/manageorders`} primary='Manage Orders' />
                             </ListItem>
 
                             <ListItem button>
-                                <ListItemText as={Link} to={`${url}/addproduct`} primary='Add a Product' />
+                                <ListItemIcon><FaPlusSquare /></ListItemIcon>
+                                <ListItemText sx={{ textDecoration: 'none' }} as={Link} to={`${url}/addproduct`} primary='Add a Product' />
                             </ListItem>
 
                             <ListItem button>
-                                <ListItemText as={Link} to={`${url}/managereviews`} primary='Manage Reviews' />
+                                <ListItemIcon><FaPenNib /></ListItemIcon>
+                                <ListItemText sx={{ textDecoration: 'none' }} as={Link} to={`${url}/managereviews`} primary='Manage Reviews' />
                             </ListItem>
 
                             <ListItem button>
-                                <ListItemText as={Link} to={`${url}/makeadmin`} primary='Make Admin' />
+                                <ListItemIcon><FaUser /></ListItemIcon>
+                                <ListItemText sx={{ textDecoration: 'none' }} as={Link} to={`${url}/makeadmin`} primary='Make Admin' />
                             </ListItem>
                         </>
                 }
 
                 <ListItem button>
+                    <ListItemIcon><FaSignOutAlt /></ListItemIcon>
                     <ListItemText onClick={logOut} to='/home' primary='Log out' />
                 </ListItem>
 
