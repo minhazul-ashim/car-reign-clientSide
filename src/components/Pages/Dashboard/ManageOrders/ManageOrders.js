@@ -74,19 +74,19 @@ const ManageOrders = () => {
                                 <TableCell align="right">Unpaid</TableCell>
                                 <TableCell align="right">
 
-                                    <Typography onClick={() => handleDeletion(order._id)} variant='caption' sx={{ display: 'block', color: 'red', mb: '10%' }}>
+                                    <Typography onClick={() => handleDeletion(order._id)} variant='caption' sx={{ display: 'block', color: 'red', mb: '10%', cursor: 'pointer' }}>
                                         Reject
                                     </Typography>
 
-                                    <Typography onClick={() => handleStatus(order._id, 'Approved')} variant='caption' sx={{ display: 'block', color: 'green' }}>
+                                    <Typography onClick={() => handleStatus(order._id, 'Approved')} variant='caption' sx={{ display: 'block', color: 'green', cursor: 'pointer' }}>
                                         Approve
                                     </Typography>
 
-                                    <Typography onClick={() => handleStatus(order._id, 'Shipped')} variant='caption' sx={{ display: 'block', my: '10%', color: 'red' }}>
+                                    <Typography onClick={() => handleStatus(order._id, 'Shipped')} variant='caption' sx={{ display: 'block', my: '10%', color: 'red', cursor: 'pointer' }}>
                                         Shipped
                                     </Typography>
 
-                                    <Typography onClick={() => handleStatus(order._id, 'Delivered')} variant='caption' sx={{ display: 'block', color: 'blue' }}>
+                                    <Typography onClick={() => handleStatus(order._id, 'Delivered')} variant='caption' sx={{ display: 'block', color: 'blue', cursor: 'pointer' }}>
                                         Delivered
                                     </Typography>
 
