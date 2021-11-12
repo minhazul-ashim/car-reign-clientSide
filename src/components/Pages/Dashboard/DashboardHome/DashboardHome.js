@@ -13,12 +13,24 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    useRouteMatch
+} from "react-router-dom";
+import Review from '../Review/Review';
+import MyOrders from '../MyOrders/MyOrders';
+import Payment from '../Payment/Payment';
 
 const drawerWidth = 240;
 
 function DashboardHome(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
+
+    let { path, url } = useRouteMatch();
+
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -35,15 +47,15 @@ function DashboardHome(props) {
 
 
                 <ListItem button>
-                    <ListItemText as={Link} to='/home' primary='My Orders' />
+                    <ListItemText as={Link} to={`${url}/myorders`} primary='My Orders' />
                 </ListItem>
 
                 <ListItem button>
-                    <ListItemText as={Link} to='/home' primary='Make Payment' />
+                    <ListItemText as={Link} to={`${url}/payment`} primary='Make Payment' />
                 </ListItem>
 
                 <ListItem button>
-                    <ListItemText as={Link} to='/home' primary='Review' />
+                    <ListItemText as={Link} to={`${url}/review`} primary='Review' />
                 </ListItem>
 
                 <ListItem button>
@@ -120,7 +132,20 @@ function DashboardHome(props) {
                 sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
             >
                 <Toolbar />
-
+                <Switch>
+                    <Route exact path={path}>
+                        <MyOrders></MyOrders>
+                    </Route>
+                    <Route path={`${path}/myorders`}>
+                        <MyOrders></MyOrders>
+                    </Route>
+                    <Route path={`${path}/review`}>
+                        <Review></Review>
+                    </Route>
+                    <Route path={`${path}/payment`}>
+                        <Payment></Payment>
+                    </Route>
+                </Switch>
             </Box>
         </Box>
     );
