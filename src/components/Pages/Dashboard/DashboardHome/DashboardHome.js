@@ -22,6 +22,7 @@ import Review from '../Review/Review';
 import MyOrders from '../MyOrders/MyOrders';
 import Payment from '../Payment/Payment';
 import useAuth from '../../../../hooks/useAuth';
+import MakeAdmin from '../MakeAdmin/MakeAdmin';
 
 const drawerWidth = 240;
 
@@ -51,6 +52,10 @@ function DashboardHome(props) {
 
                 <ListItem button>
                     <ListItemText as={Link} to={`${url}/myorders`} primary='My Orders' />
+                </ListItem>
+
+                <ListItem button>
+                    <ListItemText as={Link} to={`${url}/makeadmin`} primary='Make Admin' />
                 </ListItem>
 
                 <ListItem button>
@@ -147,6 +152,9 @@ function DashboardHome(props) {
                     </Route>
                     <Route path={`${path}/payment`}>
                         <Payment></Payment>
+                    </Route>
+                    <Route path={`${path}/makeadmin`}>
+                        <MakeAdmin></MakeAdmin>
                     </Route>
                 </Switch>
             </Box>
