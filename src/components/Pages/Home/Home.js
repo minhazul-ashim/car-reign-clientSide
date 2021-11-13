@@ -5,6 +5,7 @@ import Banner from './Banner';
 import CarsSection from '../Home/Cars/CarsSection';
 import PartnerSection from './Partners/PartnerSection';
 import ReviewSection from './ReviewSection/ReviewSection';
+import LoadingPage from '../LoadingPage/LoadingPage';
 
 const Home = () => {
 

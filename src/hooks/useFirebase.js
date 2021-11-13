@@ -17,7 +17,6 @@ const useFirebase = () => {
 
         createUserWithEmailAndPassword(auth, email, password)
             .then(result => {
-                console.log(result)
                 saveUser(email, name, 'POST');
             })
             .then(() => {
@@ -28,6 +27,7 @@ const useFirebase = () => {
             .catch(error => setError(error.message))
             .finally(() => {
                 history.push('/home')
+                setLoading(false)
             })
     }
 
@@ -48,6 +48,7 @@ const useFirebase = () => {
                 } else {
                     history.push('/home')
                 }
+                setLoading(false)
             })
     }
 
@@ -63,6 +64,7 @@ const useFirebase = () => {
                 } else {
                     history.push('/home')
                 }
+                setLoading(false)
             })
     }
 
@@ -101,6 +103,7 @@ const useFirebase = () => {
         onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUser(user)
+                setLoading(false)
             } else {
                 setUser(null)
             }

@@ -46,7 +46,7 @@ function DashboardHome(props) {
     };
 
     const drawer = (
-        <div>
+        <>
             <Toolbar />
             <Divider />
             <List>
@@ -106,7 +106,7 @@ function DashboardHome(props) {
 
             </List>
             <Divider />
-        </div>
+        </>
     );
 
     const container = window !== undefined ? () => window().document.body : undefined;
