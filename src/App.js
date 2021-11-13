@@ -6,6 +6,7 @@ import CarDetail from './components/Pages/Home/Cars/CarDetail';
 import Home from './components/Pages/Home/Home';
 import Login from './components/Pages/Login/Login';
 import Register from './components/Pages/Register/Register';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import AuthProvider from './context/AuthProvider';
 
 
@@ -27,12 +28,12 @@ function App() {
             <Route path='/register'>
               <Register></Register>
             </Route>
-            <Route path='/carinfo/:id'>
+            <PrivateRoute path='/carinfo/:id'>
               <CarDetail></CarDetail>
-            </Route>
-            <Route path='/dashboard'>
+            </PrivateRoute>
+            <PrivateRoute path='/dashboard'>
               <DashboardHome></DashboardHome>
-            </Route>
+            </PrivateRoute>
             <Route path='/explore'>
               <Explore></Explore>
             </Route>
