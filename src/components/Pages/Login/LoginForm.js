@@ -1,7 +1,7 @@
 import { Button, Container, Grid, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useHistory } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import loginImg from '../../../images/loginimage.jpg'
 
@@ -10,6 +10,9 @@ const LoginForm = () => {
     const [loginInfo, setLoginInfo] = useState({});
 
     const { manualSignIn, googleSignIn } = useAuth();
+
+    const location = useLocation().state?.from;
+    const history = useHistory();
 
     const handleBlur = (e) => {
 
@@ -24,7 +27,7 @@ const LoginForm = () => {
 
     const googleLogin = () => {
 
-        googleSignIn()
+        googleSignIn(location, history)
     }
 
     const handleLogin = () => {

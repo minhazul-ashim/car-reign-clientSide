@@ -11,7 +11,6 @@ const useFirebase = () => {
     const [loading, setLoading] = useState(true);
     const [admin, setAdmin] = useState(false);
 
-
     const auth = getAuth();
 
     const createUser = (email, password, name) => {
@@ -24,7 +23,7 @@ const useFirebase = () => {
             .catch(error => setError(error.message))
     }
 
-    const googleSignIn = () => {
+    const googleSignIn = (location, history) => {
 
         const googleProvider = new GoogleAuthProvider();
 
@@ -35,6 +34,15 @@ const useFirebase = () => {
                 saveUser(email, displayName, 'PUT');
             })
             .catch(error => setError(error.message))
+            .finally(() => {
+                if (admin) {
+                    history.push('/dashboard')
+                } else if (location) {
+                    history.push(`${location?.pathname}`)
+                } else {
+                    history.push('/home')
+                }
+            })
     }
 
     const manualSignIn = (email, password) => {
@@ -66,11 +74,6 @@ const useFirebase = () => {
             .then(data => { })
     }
 
-    // const checkAdmin = (email) => {
-
-
-    // }
-
     useEffect(() => {
 
         fetch(`http://localhost:5000/admin/${user?.email}`)
@@ -100,6 +103,7 @@ const useFirebase = () => {
         setLoading,
         createUser,
         logOut,
+        saveUser,
         manualSignIn,
         googleSignIn
     }
