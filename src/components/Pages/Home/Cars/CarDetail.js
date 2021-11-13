@@ -1,6 +1,6 @@
 import { Button, Container, Grid, Paper, TextField, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import { useHistory, useParams } from 'react-router';
 import useAuth from '../../../../hooks/useAuth';
 import Footer from '../../../Shared/Footer/Footer';
 import Navigation from '../../../Shared/Navigation/Navigation';
@@ -14,6 +14,8 @@ const CarDetail = () => {
     const [formInfo, setFormInfo] = useState({})
 
     const { id } = useParams();
+
+    const history = useHistory();
 
     const handleBlur = (e) => {
 
@@ -39,7 +41,9 @@ const CarDetail = () => {
             body: JSON.stringify(formInfo)
         })
             .then(res => res.json())
-            .then(data => { })
+            .then(data => { 
+                history.push('/dashboard')
+            })
     }
 
     useEffect(() => {

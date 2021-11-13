@@ -3,6 +3,7 @@ import { Box } from '@mui/system';
 import React, { useState } from 'react';
 import useAuth from '../../../../hooks/useAuth';
 import ReactStars from "react-rating-stars-component";
+import { useHistory } from 'react-router';
 
 
 const Review = () => {
@@ -10,6 +11,8 @@ const Review = () => {
     const { user } = useAuth();
 
     const [review, setReview] = useState({});
+
+    const history = useHistory();
 
     const ratingChanged = (newRating) => {
 
@@ -39,7 +42,9 @@ const Review = () => {
             body: JSON.stringify(review)
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                history.push('/dashboard')
+            })
     }
 
     return (
