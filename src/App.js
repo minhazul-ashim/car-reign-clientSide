@@ -5,6 +5,7 @@ import Explore from './components/Pages/Explore/Explore';
 import CarDetail from './components/Pages/Home/Cars/CarDetail';
 import Home from './components/Pages/Home/Home';
 import Login from './components/Pages/Login/Login';
+import NoPage from './components/Pages/NoPage/NoPage';
 import Register from './components/Pages/Register/Register';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import AuthProvider from './context/AuthProvider';
@@ -36,6 +37,9 @@ function App() {
             </PrivateRoute>
             <Route path='/explore'>
               <Explore></Explore>
+            </Route>
+            <Route path='*'>
+              <NoPage></NoPage>
             </Route>
           </Switch>
         </BrowserRouter>
