@@ -1,6 +1,7 @@
 import { Container, Grid, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
+import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from 'react-icons/fa'
 
 const Footer = () => {
     return (
@@ -24,6 +25,12 @@ const Footer = () => {
                         <Typography variant='h6'>
                             Social Links
                         </Typography>
+                        <Box sx={{ display: 'flex', width: '75%', justifyContent: 'space-around', mt: '5%' }}>
+                            <FaFacebook />
+                            <FaTwitter />
+                            <FaInstagram />
+                            <FaLinkedin />
+                        </Box>
                     </Grid>
                     <Grid item xs={6} md={3}>
                         <Typography variant='h6'>
