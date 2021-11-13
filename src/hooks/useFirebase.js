@@ -35,9 +35,7 @@ const useFirebase = () => {
             })
             .catch(error => setError(error.message))
             .finally(() => {
-                if (admin) {
-                    history.push('/dashboard')
-                } else if (location) {
+                if (location) {
                     history.push(`${location?.pathname}`)
                 } else {
                     history.push('/home')
@@ -45,12 +43,19 @@ const useFirebase = () => {
             })
     }
 
-    const manualSignIn = (email, password) => {
+    const manualSignIn = (email, password, location, history) => {
 
         signInWithEmailAndPassword(auth, email, password)
             .then(result => {
             })
             .catch(error => setError(error.message))
+            .finally(() => {
+                if (location) {
+                    history.push(`${location?.pathname}`)
+                } else {
+                    history.push('/home')
+                }
+            })
     }
 
     const logOut = () => {

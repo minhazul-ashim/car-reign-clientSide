@@ -33,7 +33,7 @@ const LoginForm = () => {
     const handleLogin = () => {
 
         const { email, password } = loginInfo;
-        manualSignIn(email, password)
+        manualSignIn(email, password, location, history)
     }
 
     return (
