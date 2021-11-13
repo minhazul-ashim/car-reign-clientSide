@@ -1,13 +1,15 @@
 import { Button, Container, Grid, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import loginImg from '../../../images/loginimage.jpg';
 
 const RegisterForm = () => {
 
     const [form, setForm] = useState({});
+
+    const history = useHistory()
 
     const { googleSignIn, createUser, error } = useAuth();
 
@@ -25,7 +27,7 @@ const RegisterForm = () => {
     const handleSubmit = () => {
 
         const { email, password, name } = form;
-        createUser(email, password, name)
+        createUser(email, password, name, history)
     }
 
     const googleLogin = () => {
