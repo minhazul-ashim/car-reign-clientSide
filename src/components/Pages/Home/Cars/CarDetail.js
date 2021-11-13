@@ -57,7 +57,7 @@ const CarDetail = () => {
 
                     <Grid item xs={12} md={6}>
                         <Paper elevation={0}>
-                            <img src="https://images.unsplash.com/photo-1610099610040-ab19f3a5ec35?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80" style={{ width: '100%', height: '250px', objectFit: 'cover' }} alt="" />
+                            <img src={car?.img} style={{ width: '100%', height: '250px', objectFit: 'cover' }} alt="" />
                             <Typography variant='h4'>
                                 {car?.name}
                             </Typography>

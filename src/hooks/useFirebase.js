@@ -106,6 +106,7 @@ const useFirebase = () => {
                 setLoading(false)
             } else {
                 setUser(null)
+                setLoading(false)
             }
         })
     }, [])
