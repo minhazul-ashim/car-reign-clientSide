@@ -25,11 +25,15 @@ const MyOrders = () => {
 
     const handleCancel = (id) => {
 
-        fetch(`https://thawing-tor-41615.herokuapp.com/orders/${id}`, {
-            method: 'DELETE'
-        })
-            .then(res => res.json())
-            .then(data => { loadOrders() })
+        const proceed = window.confirm('Are you sure you want to cancel the order?')
+
+        if (proceed) {
+            fetch(`https://thawing-tor-41615.herokuapp.com/orders/${id}`, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => { loadOrders() })
+        }
     }
 
     useEffect(loadOrders, [user])

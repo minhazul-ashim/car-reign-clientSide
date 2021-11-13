@@ -33,13 +33,18 @@ const ManageOrders = () => {
 
     const handleDeletion = (id) => {
 
-        fetch(`https://thawing-tor-41615.herokuapp.com/orders/${id}`, {
-            method: 'DELETE'
-        })
-            .then(res => res.json())
-            .then(data => {
-                loadOrders()
+        const proceed = window.confirm('Do you really want to delete?');
+
+        if (proceed) {
+
+            fetch(`https://thawing-tor-41615.herokuapp.com/orders/${id}`, {
+                method: 'DELETE'
             })
+                .then(res => res.json())
+                .then(data => {
+                    loadOrders()
+                })
+        }
     }
 
     useEffect(loadOrders, [])

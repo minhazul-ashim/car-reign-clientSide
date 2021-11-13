@@ -21,11 +21,16 @@ const AddProduct = () => {
 
     const handleDeletion = (id) => {
 
-        fetch(`https://thawing-tor-41615.herokuapp.com/cars/${id}`, {
-            method: 'DELETE'
-        })
-            .then(res => res.json())
-            .then(data => loadProducts())
+        const proceed = window.confirm('Do you really want to delete?');
+
+        if(proceed) {
+            
+            fetch(`https://thawing-tor-41615.herokuapp.com/cars/${id}`, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => loadProducts())
+        }
     }
 
     useEffect(loadProducts, [])

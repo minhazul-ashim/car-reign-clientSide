@@ -13,16 +13,21 @@ const ManageReviews = () => {
             .then(data => setReviews(data))
     }
 
-    const handleDeletion = (id) => [
+    const handleDeletion = (id) => {
 
-        fetch(`https://thawing-tor-41615.herokuapp.com/reviews/${id}`, {
-            method: 'DELETE'
-        })
-            .then(res => res.json())
-            .then(data => {
-                loadReviews()
+        const proceed = window.confirm('Do you really want to delete?');
+
+        if (proceed) {
+
+            fetch(`https://thawing-tor-41615.herokuapp.com/reviews/${id}`, {
+                method: 'DELETE'
             })
-    ]
+                .then(res => res.json())
+                .then(data => {
+                    loadReviews()
+                })
+        }
+    }
 
     useEffect(loadReviews, [])
 
