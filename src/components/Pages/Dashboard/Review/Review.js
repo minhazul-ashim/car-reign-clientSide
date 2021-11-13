@@ -2,12 +2,21 @@ import { Button, Container, TextField, Typography, TextareaAutosize } from '@mui
 import { Box } from '@mui/system';
 import React, { useState } from 'react';
 import useAuth from '../../../../hooks/useAuth';
+import ReactStars from "react-rating-stars-component";
+
 
 const Review = () => {
 
     const { user } = useAuth();
 
     const [review, setReview] = useState({});
+
+    const ratingChanged = (newRating) => {
+
+        const rest = { ...review }
+        rest['rating'] = newRating
+        setReview(rest)
+    }
 
     const handleBlur = (e) => {
 
@@ -55,6 +64,18 @@ const Review = () => {
                     placeholder="Your Message"
                     minRows={5}
                     style={{ width: "100%", marginTop: '3%' }}
+                />
+
+                <Typography variant='h6'>
+                    How much will you rate our service?
+                </Typography>
+
+                <ReactStars
+                    count={5}
+                    name='rating'
+                    onChange={ratingChanged}
+                    size={24}
+                    activeColor="#ffd700"
                 />
 
                 <Button onClick={handleSubmit} variant='outlined' sx={{ mt: '3%', display: 'block' }}> Submit </Button>
