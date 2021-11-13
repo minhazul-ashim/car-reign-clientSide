@@ -74,13 +74,11 @@ function Navigation() {
                                         aria-expanded={open ? 'true' : undefined}
                                         onClick={handleExpand}
                                         sx={{ display: 'flex' }}>
-                                        <Box>
-                                            {
-                                                user?.img ?
-                                                    <img style={{ width: '30px', borderRadius: '50%' }} src={user?.photoURL} alt=''></img> :
-                                                    <FaUserCircle style={{ fontSize: '25px' }} />
-                                            }
-                                        </Box>
+                                        {
+                                            !user.photoURL ?
+                                                <FaUserCircle style={{ fontSize: '25px' }} /> :
+                                                <img style={{ width: '30px', borderRadius: '50%' }} src={user?.photoURL} alt=''></img>
+                                        }
                                         <GoTriangleDown />
                                     </Box>
                                     <Menu
