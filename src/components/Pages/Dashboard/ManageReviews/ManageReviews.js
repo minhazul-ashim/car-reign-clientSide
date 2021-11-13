@@ -8,14 +8,14 @@ const ManageReviews = () => {
 
     const loadReviews = () => {
 
-        fetch('http://localhost:5000/reviews')
+        fetch('https://thawing-tor-41615.herokuapp.com/reviews')
             .then(res => res.json())
             .then(data => setReviews(data))
     }
 
     const handleDeletion = (id) => [
 
-        fetch(`http://localhost:5000/reviews/${id}`, {
+        fetch(`https://thawing-tor-41615.herokuapp.com/reviews/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

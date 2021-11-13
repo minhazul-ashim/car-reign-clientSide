@@ -31,7 +31,7 @@ const CarDetail = () => {
 
     const handleOrder = () => {
 
-        fetch('http://localhost:5000/orders', {
+        fetch('https://thawing-tor-41615.herokuapp.com/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -44,7 +44,7 @@ const CarDetail = () => {
 
     useEffect(() => {
 
-        fetch(`http://localhost:5000/carinfo/${id}`)
+        fetch(`https://thawing-tor-41615.herokuapp.com/carinfo/${id}`)
             .then(res => res.json())
             .then(data => setCar(data))
     }, [])

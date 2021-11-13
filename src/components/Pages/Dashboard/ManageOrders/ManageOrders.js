@@ -8,7 +8,7 @@ const ManageOrders = () => {
 
     const loadOrders = () => {
 
-        fetch('http://localhost:5000/orders')
+        fetch('https://thawing-tor-41615.herokuapp.com/orders')
             .then(res => res.json())
             .then(data => {
                 setOrders(data)
@@ -17,7 +17,7 @@ const ManageOrders = () => {
 
     const handleStatus = (id, status) => {
 
-        fetch(`http://localhost:5000/orders`, {
+        fetch(`https://thawing-tor-41615.herokuapp.com/orders`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -33,7 +33,7 @@ const ManageOrders = () => {
 
     const handleDeletion = (id) => {
 
-        fetch(`http://localhost:5000/orders/${id}`, {
+        fetch(`https://thawing-tor-41615.herokuapp.com/orders/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

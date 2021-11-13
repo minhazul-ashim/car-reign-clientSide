@@ -12,7 +12,7 @@ const MakeAdmin = () => {
 
     const handleSubmit = (e) => {
 
-        fetch(`http://localhost:5000/admin`, {
+        fetch(`https://thawing-tor-41615.herokuapp.com/admin`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

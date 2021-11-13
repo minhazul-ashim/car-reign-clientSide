@@ -78,7 +78,7 @@ const useFirebase = () => {
 
         const user = { email: email, name: name }
 
-        fetch(`http://localhost:5000/users`, {
+        fetch(`https://thawing-tor-41615.herokuapp.com/users`, {
             method: method,
             headers: {
                 'content-type': 'application/json'
@@ -91,7 +91,7 @@ const useFirebase = () => {
 
     useEffect(() => {
 
-        fetch(`http://localhost:5000/admin/${user?.email}`)
+        fetch(`https://thawing-tor-41615.herokuapp.com/admin/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setAdmin(data)

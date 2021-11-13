@@ -8,7 +8,7 @@ const ReviewContainer = () => {
 
     useEffect(() => {
 
-        fetch('http://localhost:5000/reviews')
+        fetch('https://thawing-tor-41615.herokuapp.com/reviews')
             .then(res => res.json())
             .then(data => {
                 setReviews(data)
@@ -16,7 +16,7 @@ const ReviewContainer = () => {
     }, [])
 
     return (
-        <Grid container spacing={2} sx={{height: '100%'}}>
+        <Grid container spacing={2} sx={{ height: '100%' }}>
             {
                 reviews.map(review => <ReviewBox key={Math.random() * 4} review={review}></ReviewBox>)
             }

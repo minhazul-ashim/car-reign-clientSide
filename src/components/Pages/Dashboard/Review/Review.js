@@ -31,7 +31,7 @@ const Review = () => {
 
     const handleSubmit = () => {
 
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://thawing-tor-41615.herokuapp.com/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

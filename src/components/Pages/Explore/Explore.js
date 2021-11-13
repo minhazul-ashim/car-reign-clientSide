@@ -10,7 +10,7 @@ const Explore = () => {
 
     useEffect(() => {
 
-        fetch('http://localhost:5000/cars')
+        fetch('https://thawing-tor-41615.herokuapp.com/cars')
             .then(res => res.json())
             .then(data => {
                 setAllCars(data);

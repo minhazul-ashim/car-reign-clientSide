@@ -12,7 +12,7 @@ const AddProduct = () => {
 
     const loadProducts = () => {
 
-        fetch('http://localhost:5000/cars')
+        fetch('https://thawing-tor-41615.herokuapp.com/cars')
             .then(res => res.json())
             .then(data => {
                 setCars(data)
@@ -21,7 +21,7 @@ const AddProduct = () => {
 
     const handleDeletion = (id) => {
 
-        fetch(`http://localhost:5000/cars/${id}`, {
+        fetch(`https://thawing-tor-41615.herokuapp.com/cars/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
@@ -33,7 +33,7 @@ const AddProduct = () => {
 
     const onSubmit = (data) => {
 
-        fetch('http://localhost:5000/cars', {
+        fetch('https://thawing-tor-41615.herokuapp.com/cars', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
